@@ -18,4 +18,17 @@ let addItem = (inputBox) => {
             listItem.remove();
         })
         list.appendChild(listItem);
+        saveTask();
 }
+const saveTask = () => {
+    localStorage.setItem('tasks', list.innerHTML);
+}
+
+const showTask = () => {
+    let savedTasks = localStorage.getItem('tasks');
+    if(savedTasks){
+        list.innerHTML = savedTasks;
+    }
+}
+showTask();
+
